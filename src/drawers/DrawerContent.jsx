@@ -1,13 +1,18 @@
 import * as React from "react";
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet, DrawerLayoutAndroid } from "react-native";
 import phoneImg from '../../public/images/Phone-Black.png'
+import emailImg from '../../public/images/Email-Black.png'
 
 const DrawerContent = () => (
     <View style={[styles.container, styles.navigationContainer]}>
       <View style={styles.info}>
         <Image source={phoneImg} style={{height: 48, width: 48}}/>
         <Text>(815)245-7655</Text>
-      </View>     
+      </View>  
+      <View style={styles.info}>
+        <Image source={emailImg} style={{height: 48, width: 48}}/>
+        <Text style={{paddingLeft: 12}}>matt.deboer0@gmail.com</Text>
+      </View>    
     </View>
   );
 
@@ -23,7 +28,8 @@ const styles = StyleSheet.create({
     info: {
       alignItems: "center",
       justifyContent: "center",
-      flexDirection: 'row'
+      flexDirection: 'row',
+      paddingBottom: 16
     },
     navigationContainer: {
       backgroundColor: "#ecf0f1"

@@ -1,13 +1,19 @@
 import * as React from "react";
-import { View, Text, Image, Button, Platform, StyleSheet, ImageBackground, DrawerLayoutAndroid } from "react-native";
+import { View, Text, Image, Button, Platform, StyleSheet, ImageBackground, DrawerLayoutAndroid, ScrollView, TouchableOpacity } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import AndroidMenuBar from './src/menu/AndroidMenu.jsx';
 import FadeInView from './src/animations/FadeIn.jsx'
 import bgImage from './public/images/background.jpg';
-import phoneSwipeImg from './public/images/Phone-White-Swipe.png';
+import phoneSwipeImg from './public/images/Phone-Black.png';
 import DrawerContent from "./src/drawers/DrawerContent.jsx";
 
 export default function App() {
   const drawer = React.useRef(null);
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  const onContactDrawerDrawerButtonPress = () => {
+    drawer.current.openDrawer()
+  }
 
   if(Platform.OS === 'android') {
     return (    
@@ -16,18 +22,29 @@ export default function App() {
         drawerWidth={300}
         drawerPosition={'left'}
         renderNavigationView={() => <DrawerContent/>}
-      >
-        <View style={styles.container}>
-          <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
-            <FadeInView style={{width: '100%', height: 90, position: 'absolute', top: 100}}>
-              <Text style={styles.title}>MaD Industries</Text>
-            </FadeInView>
-            <View>
-              <Image style={styles.swipeIcon} source={phoneSwipeImg}/>
-            </View> 
-          </ImageBackground>                     
-        </View> 
-      </DrawerLayoutAndroid>           
+        style={{position: 'relative'}}
+      >        
+        <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>    
+          <View style={{top: 100, flex: 1}}>
+            <Text style={styles.title}>MaD Industries</Text>
+            <ScrollView contentContainerStyle={{justifyContent: 'space-between', flexDirection: 'column'}}>
+              <View style={{paddingHorizontal: 24, flex: 1}}>              
+                <Text style={{color: 'white', fontSize: 24}}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Text>
+              </View>
+              <View style={{paddingHorizontal: 24, flex: 1}}>
+                <Text style={{color: 'white', fontSize: 24}}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Text>
+              </View>
+            </ScrollView>
+          </View>
+          <TouchableOpacity style={styles.roundButton1} onPress={onContactDrawerDrawerButtonPress}>
+            <Image style={styles.swipeIcon} source={phoneSwipeImg}/>
+          </TouchableOpacity> 
+        </ImageBackground> 
+      </DrawerLayoutAndroid> 
     );
   } else {
     return (    
@@ -56,7 +73,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white',
-    opacity: .7
+    opacity: .7,
+    marginBottom: 32
   },
   bgImage: {
     flex: 1,
@@ -74,11 +92,21 @@ const styles = StyleSheet.create({
     fontSize: 42,
     lineHeight: 84,
     fontWeight: "bold",
-    textAlign: "center",
-    // backgroundColor: "#000000c0"
+    textAlign: "center"
   },
   swipeIcon: {
-    height: 56,
-    width: 56
-  }
+    height: 40,
+    width: 40, 
+    opacity: .6 
+  },
+  roundButton1: {
+    width: 70,
+    height: 70,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    backgroundColor: 'white',
+    marginLeft: 16,
+    marginBottom: 16
+  },
 });
