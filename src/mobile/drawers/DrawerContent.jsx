@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet, DrawerLayoutAndroid } from "react-native";
-import phoneImg from '../../public/images/Phone-Black.png'
-import emailImg from '../../public/images/Email-Black.png'
+import phoneImg from '../../../assets/images/Phone-Black.png'
+import emailImg from '../../../assets/images/Email-Black.png'
 
 const DrawerContent = () => (
     <View style={[styles.container, styles.navigationContainer]}>

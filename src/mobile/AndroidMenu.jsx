@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from "react-native";
-import homeIcon from '../../public/images/home.png';
+import homeIcon from '../../assets/images/home.png';
 
 const AndroidMenuBar = () => {
     return (
