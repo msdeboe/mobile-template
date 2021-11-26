@@ -4,8 +4,11 @@ import { View, Text, Image, Button, Platform, StyleSheet, ImageBackground, Drawe
 //components
 import DrawerContent from "./drawers/DrawerContent.jsx";
 //assets
-import bgImage from '../../assets/images/background.jpg';
+import business3 from '../../assets/images/business3.jpg';
 import phoneSwipeImg from '../../assets/images/Phone-Black.png';
+import AndroidMenuBar from "./AndroidMenuBar.jsx";
+import AppText from "./AppText.jsx";
+import StatementText from "./StatementText";
 
 function AndroidHomePage() {
     const drawer = React.useRef(null);
@@ -15,33 +18,29 @@ function AndroidHomePage() {
       drawer.current.openDrawer()
     }
     return (
-        <DrawerLayoutAndroid
+      <DrawerLayoutAndroid
         ref={drawer}
         drawerWidth={300}
         drawerPosition={'left'}
         renderNavigationView={() => <DrawerContent/>}
         style={{position: 'relative'}}
       >        
-        <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>    
-          <View style={{top: 100, flex: 1}}>
-            <Text style={styles.title}>MaD Industries</Text>
-            <ScrollView contentContainerStyle={{justifyContent: 'space-between', flexDirection: 'column'}}>
-              <View style={{paddingHorizontal: 24, flex: 1}}>              
-                <Text style={{color: 'white', fontSize: 24}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </Text>
-              </View>
-              <View style={{paddingHorizontal: 24, flex: 1}}>
-                <Text style={{color: 'white', fontSize: 24}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </Text>
-              </View>
-            </ScrollView>
-          </View>
-          <TouchableOpacity style={styles.roundButton1} onPress={onContactDrawerDrawerButtonPress}>
-            <Image style={styles.swipeIcon} source={phoneSwipeImg}/>
-          </TouchableOpacity> 
-        </ImageBackground> 
+        <View style={{height: '17%'}}>
+          <AndroidMenuBar/> 
+        </View>       
+                 
+        <View style={{flex: 1}}>
+          <ScrollView contentContainerStyle={{alignItems: 'center', flexDirection: 'column'}}>
+            <Image source={business3} resizeMode="cover" style={{height: 300, width: '100%'}}/>    
+            <View style={{marginBottom: 30, alignItems: 'center', paddingTop: 20}}>
+              <StatementText>We're a family here</StatementText>
+              <StatementText>Some bullshit</StatementText>
+            </View>            
+          </ScrollView>
+        </View>
+        <TouchableOpacity style={styles.roundButton1} onPress={onContactDrawerDrawerButtonPress}>
+          <Image style={styles.swipeIcon} source={phoneSwipeImg}/>
+        </TouchableOpacity> 
       </DrawerLayoutAndroid>
     );
 }

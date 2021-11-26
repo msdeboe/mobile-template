@@ -1,20 +1,45 @@
 import * as React from "react";
-import { View, Text, Image, Button, TouchableOpacity, StyleSheet, DrawerLayoutAndroid } from "react-native";
-import phoneImg from '../../../assets/images/Phone-Black.png'
-import emailImg from '../../../assets/images/Email-Black.png'
+import { View, Text, Image, Button, TouchableOpacity, StyleSheet, DrawerLayoutAndroid, Linking } from "react-native";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faMobileAlt, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
 
-const DrawerContent = () => (
-    <View style={[styles.container, styles.navigationContainer]}>
+function DrawerContent()  {
+  const url= 'tel://+8152457655'
+  
+  const args = {
+    number: '8152457655', // String value with the number to call
+    prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
+  }
+
+  function makeCall() {
+    Linking.openURL(url)
+  }
+
+  return (
+    <View style={[styles.container, styles.navigationContainer]}> 
       <View style={styles.info}>
-        <Image source={phoneImg} style={{height: 48, width: 48}}/>
-        <Text>(815)245-7655</Text>
+        <FontAwesomeIcon icon={faEnvelopeOpen} size={ 48 }/>
+        <Text style={{paddingLeft: 12, fontSize: 18}}>matt.deboer0@gmail.com</Text>
       </View>  
-      <View style={styles.info}>
-        <Image source={emailImg} style={{height: 48, width: 48}}/>
-        <Text style={{paddingLeft: 12}}>matt.deboer0@gmail.com</Text>
-      </View>    
+      <TouchableOpacity style={styles.info} onPress={makeCall}>
+        <FontAwesomeIcon icon={faMobileAlt} size={ 48 }/>
+        <Text style={{paddingLeft: 12, fontSize: 18}}>(815)245-7655</Text>
+      </TouchableOpacity> 
+      <TouchableOpacity style={styles.info}>
+        <FontAwesomeIcon icon={faInstagram} size={ 48 }/>
+      </TouchableOpacity> 
+      <TouchableOpacity style={styles.info}>
+        <FontAwesomeIcon icon={faFacebook} size={ 48 } />
+      </TouchableOpacity>                   
+      <TouchableOpacity style={styles.info}>
+        <FontAwesomeIcon icon={faTwitter} size={ 48 } />
+      </TouchableOpacity>  
     </View>
-  );
+  )
+}
+  
+  
 
 export default DrawerContent;
 
@@ -29,14 +54,9 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       flexDirection: 'row',
-      paddingBottom: 16
+      paddingBottom: 24
     },
     navigationContainer: {
       backgroundColor: "#ecf0f1"
-    },
-    paragraph: {
-      padding: 16,
-      fontSize: 15,
-      textAlign: "center"
     }
   });
