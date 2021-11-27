@@ -14,7 +14,8 @@ function AppText (props) {
     return(
       <Text 
         style={{
-          fontFamily: 'Roboto-Light',          
+          fontFamily: 'Roboto-Light',      
+          fontSize: 16    
         }}
       >
         {props.children}

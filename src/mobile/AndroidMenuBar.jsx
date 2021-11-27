@@ -4,11 +4,11 @@ import logo from '../../assets/images/madLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-const AndroidMenuBar = () => {
+const AndroidMenuBar = (props) => {
     return (
         <View style={styles.topBar}>
             <View style={styles.menuButton}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={props.onOpenDrawer}>
                     <FontAwesomeIcon icon={faBars} size={ 28 }/>
                 </TouchableOpacity> 
             </View>
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     },
     logoImage: {
         alignSelf: 'center', 
-        width: '60%', 
-        height: '80%'
+        width: '50%', 
+        height: '70%'
     }
   });
 
