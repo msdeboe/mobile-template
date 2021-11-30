@@ -8,12 +8,12 @@ import DrawerContent from "./mobile/drawers/DrawerContent.jsx";
 import business1 from '../assets/images/business1.jpg';
 import business3 from '../assets/images/business3.jpg';
 import MobileMenuBar from "./mobile/MobileMenuBar";
-import AppText from "./mobile/AppText";
-import StatementText from "./mobile/StatementText";
+import AppText from "./shared/text/AppText";
+import StatementText from "./shared/text/StatementText";
 //misc
 import * as Constants from './shared/constants';
 
-function MobileHomePage() {
+function HomePage() {
     const drawer = React.useRef(null);
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
   
@@ -28,25 +28,25 @@ function MobileHomePage() {
 
     return (
     <View style={{flex: 1}}>
-        <ScrollView contentContainerStyle={{alignItems: 'center', flexDirection: 'column'}}>
-        <Image source={business3} resizeMode="cover" style={{height: 300, width: '100%'}}/>    
-        <View style={{marginBottom: 32, alignItems: 'center', paddingTop: 20}}>
-            <StatementText>We're a family hereee</StatementText>
-            <StatementText>Some bullshit</StatementText>
-        </View>  
-        <View style={{paddingHorizontal: 16, paddingBottom: 32}}>
-            <AppText>{Constants.fillerText}</AppText>  
-        </View>  
-        <Image source={business1} resizeMode="cover" style={{height: 300, width: '100%', paddingBottom: 32}}/> 
-        <View style={{paddingHorizontal: 16, paddingTop: 32, paddingBottom: 32}}>
-            <AppText>{Constants.fillerText}</AppText>  
-        </View> 
-        </ScrollView>
+      <ScrollView contentContainerStyle={{alignItems: 'center', flexDirection: 'column'}}>
+      <Image source={business3} resizeMode="cover" style={{height: '80%', width: '100%'}}/>    
+      <View style={{marginBottom: 32, alignItems: 'center', paddingTop: 20}}>
+          <StatementText>We're a family hereee</StatementText>
+          <StatementText>Some bullshit</StatementText>
+      </View>  
+      <View style={{paddingHorizontal: 16, paddingBottom: 32}}>
+          <AppText>{Constants.fillerText}</AppText>  
+      </View>  
+      <Image source={business1} resizeMode="cover" style={{height: '80%', width: '100%', paddingBottom: 32}}/> 
+      <View style={{paddingHorizontal: 16, paddingTop: 32, paddingBottom: 32}}>
+          <AppText>{Constants.fillerText}</AppText>  
+      </View> 
+      </ScrollView>
     </View>
     );    
 }
 
-export default MobileHomePage;
+export default HomePage;
 
 const styles = StyleSheet.create({
     container: {

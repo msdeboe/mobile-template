@@ -8,8 +8,8 @@ import DrawerContent from "./drawers/DrawerContent.jsx";
 import business1 from '../../assets/images/business1.jpg';
 import business3 from '../../assets/images/business3.jpg';
 import AndroidMenuBar from "./MobileMenuBar.jsx";
-import AppText from "./AppText.jsx";
-import StatementText from "./StatementText";
+import AppText from "../shared/text/AppText.jsx";
+import StatementText from "../shared/text/StatementText";
 //misc
 import * as Constants from '../shared/constants';
 

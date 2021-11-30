@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text } from "react-native";
-import AppText from "../AppText";
+import AppText from "../../shared/text/AppText";
 import { useFonts } from 'expo-font';
 
 function DrawerText (props) {

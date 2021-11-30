@@ -4,8 +4,7 @@ import { useFonts } from 'expo-font';
 
 function AppText (props) {
   let [fontsLoaded] = useFonts({
-    'Roboto-Black': require('../../assets/fonts/Roboto-Black.ttf'),
-    'Roboto-Light': require('../../assets/fonts/Roboto-Light.ttf'),
+    'Roboto-Light': require('../../../assets/fonts/Roboto-Light.ttf'),
   });
   if(!fontsLoaded) {
     return <></>;

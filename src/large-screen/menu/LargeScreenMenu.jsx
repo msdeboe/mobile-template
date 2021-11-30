@@ -6,25 +6,25 @@ import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg
 
 const WebMenu = () => {
     return (
-        <View style={styles.menuBar}>   
+        <View style={styles.menuBar}>  
             <Pressable>
-                <FontAwesomeIcon icon={faInstagram} size="lg" color="white" />
-            </Pressable> 
-            <Pressable>
-                <FontAwesomeIcon icon={faFacebook} size="lg" color="white" />
-            </Pressable>                   
-            <Pressable>
-                <FontAwesomeIcon icon={faTwitter} size="lg" color="white" />
-            </Pressable>  
-            <Pressable>
-                <AppMenuText>Products</AppMenuText>
+                <AppMenuText>PRODUCTS</AppMenuText>
             </Pressable>            
             <Pressable>
-                <AppMenuText>About</AppMenuText>
+                <AppMenuText>ABOUT</AppMenuText>
             </Pressable>
             <Pressable>
-                <AppMenuText>Contact</AppMenuText>
+                <AppMenuText>CONTACT</AppMenuText>
             </Pressable>
+            <Pressable>
+                <FontAwesomeIcon icon={faInstagram} size="lg" color="black" />
+            </Pressable> 
+            <Pressable>
+                <FontAwesomeIcon icon={faFacebook} size="lg" color="black" />
+            </Pressable>                   
+            <Pressable>
+                <FontAwesomeIcon icon={faTwitter} size="lg" color="black" />
+            </Pressable>  
         </View>
     )
 }
@@ -33,12 +33,15 @@ const styles = StyleSheet.create({
     menuButton: {
     },
     menuBar: {
+        
         justifyContent: 'space-between',
         flexDirection: 'row',
-        width: '30%',
-        marginVertical: 'auto',        
+        width: '55%',
         flex: 1,
-        // borderColor: 'white',
+        paddingVertical: 22,
+        alignContent: 'center', 
+        marginRight: '10%'
+        // borderColor: 'black',
         // borderWidth: 5,
     },  
   });

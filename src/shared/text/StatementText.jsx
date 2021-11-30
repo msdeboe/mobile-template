@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 
 function StatementText (props) {
     let [fontsLoaded] = useFonts({
-        'Roboto-Medium': require('../../assets/fonts/Roboto-Medium.ttf'),
+        'Roboto-Medium': require('../../../assets/fonts/Roboto-Medium.ttf'),
       });
     if(!fontsLoaded){
         return <></>;

@@ -1,15 +1,18 @@
+//react
 import * as React from "react";
 import '@expo/match-media';
 import { View, Text, Image, Button, Platform, StyleSheet, ImageBackground, DrawerLayoutAndroid, ScrollView, TouchableOpacity } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
 import MobileHomePage from "./src/mobile/MobileHomePage.jsx";
-import WebHomePage from "./src/desktop/home-page/WebHomePage.jsx";
 import HomePage from "./src/HomePage";
 import { useFonts } from 'expo-font';
 import { useMediaQuery } from 'react-responsive'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import LargeScreenMenu from "./src/large-screen/menu/LargeScreenMenu.jsx";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import logo from './assets/images/madLogo.png'
+import AppHeaderText from "./src/large-screen/home-page/AppHeaderText.jsx";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -53,21 +56,40 @@ export default function App() {
     const Stack = createNativeStackNavigator();
     const Drawer = createDrawerNavigator();
 
-    // return (
-    //   <NavigationContainer>
-    //     <Stack.Navigator>
-    //       <Stack.Screen name="Home" component={HomePage} options={{title: 'Poop'}} />
-    //     </Stack.Navigator>
-    //   </NavigationContainer>
-    // );
+    function LogoTitle() {
+      return (
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={faBars}
+        />
+      );
+    }
 
-    return (
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={HomePage} options={{headerTitle: 'MattD Development'}} />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    );
+    if(isBigScreen) {
+        return (
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen 
+              name="Home" 
+              component={HomePage} 
+              options={({ navigation, route }) => ({
+                headerLeft: props => <Image source={logo} style={{marginLeft: 100, marginRight: 50, width: 50, height: 50}}/>,
+                headerRight: props => <LargeScreenMenu />,                
+                headerTitle: props => <AppHeaderText style={{marginLeft: '15%'}}>MaD Designs</AppHeaderText>,
+              })}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      );
+    } else {
+      return (
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomePage} options={{headerTitle: 'MattD Designs'}} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      );
+    }
 }
 
 const styles = StyleSheet.create({
